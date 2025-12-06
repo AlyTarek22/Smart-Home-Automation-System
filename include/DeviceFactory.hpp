@@ -14,7 +14,7 @@ class DeviceFactory
 {
 public:
     virtual std::shared_ptr<Light> CreateLight(
-        const std::string &name, int brightness) = 0;
+        const std::string &name, int brightness=50) = 0;
 
     virtual std::shared_ptr<Camera> CreateCamera(
         const std::string &name) = 0;
@@ -35,7 +35,7 @@ class PhilipsFactory : public DeviceFactory
 {
 public:
     std::shared_ptr<Light> CreateLight(
-        const std::string &name, int brightness) override;
+        const std::string &name, int brightness=50) override;
 
     std::shared_ptr<Camera> CreateCamera(
         const std::string &name) override;

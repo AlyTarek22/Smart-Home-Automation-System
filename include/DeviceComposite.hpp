@@ -17,6 +17,7 @@ public:
     void AddDevice(std::shared_ptr<DeviceComponent> device);
     void RemoveDevice(std::shared_ptr<DeviceComponent> device);
     ~DeviceComposite();
+    void show();
 };
 
 #endif

@@ -19,3 +19,10 @@ void DeviceComposite::TurnOff() {
         device->TurnOff();
     }
 }
+
+void DeviceComposite::show(){
+    std::cout<<"Device Composite: "<<name<<std::endl;
+    for(auto device:devices){
+        device->show();
+    }
+}

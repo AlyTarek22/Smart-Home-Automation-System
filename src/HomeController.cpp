@@ -23,3 +23,12 @@ std::shared_ptr<DeviceFactory> HomeController::getFactory()
 {
     return this->factory;
 }
+void HomeController::buildHome(std::shared_ptr<SmartHomeBuilder> builder)
+{
+    this->house = builder->buildDefaultHome();
+}
+
+std::shared_ptr<DeviceComposite> HomeController::getHome()
+{
+    return this->house;
+}
