@@ -1,4 +1,4 @@
-/* 
+
 #include "../include/DeviceFactory.hpp"
 #include "../include/Light.hpp"
 #include "../include/Camera.hpp"
@@ -6,6 +6,8 @@
 #include "../include/HomeController.hpp"
 #include "../include/MotionSensor.hpp"
 #include "../include/DoorLock.hpp"
+#include "../include/DeviceComposite.hpp"
+#include "../include/DeviceLeaf.hpp"
 #include <iostream>
 #include <memory>
 int main()
@@ -13,7 +15,7 @@ int main()
     HomeController *homeController = HomeController::getInstance();
     homeController->setFactory(std::make_unique<PhilipsFactory>());
     auto factory = homeController->getFactory();
-    std::cout << "===== TESTING PHILIPS FACTORY =====\n";
+   /*  std::cout << "===== TESTING PHILIPS FACTORY =====\n";
 
     auto pLight = factory->CreateLight("Philips LED Living Room Light", 80);
     auto pCamera = factory->CreateCamera("Philips Wired Camera");
@@ -85,10 +87,41 @@ int main()
     std::cout<<sMotionSensor->GetName()<<std::endl;
     sMotionSensor->TurnOn();
     sMotionSensor->TurnOff();
-    sMotionSensor->SensorType();
+    sMotionSensor->SensorType(); */
+    std::shared_ptr<DeviceComposite>House=std::make_shared<DeviceComposite>("House");
+    std::shared_ptr<DeviceComposite>FirstFloor=std::make_shared<DeviceComposite>("FirstFloor");
+    std::shared_ptr<DeviceComposite>SecondFloor=std::make_shared<DeviceComposite>("SecondFloor");
+    House->AddDevice(FirstFloor);
+    House->AddDevice(SecondFloor);
+    
+    std::shared_ptr<DeviceComposite>LivingRoom=std::make_shared<DeviceComposite>("LivingRoom");
+    std::shared_ptr<DeviceLeaf>Light1=std::make_shared<DeviceLeaf>(" Living Room Light1");
+    std::shared_ptr<DeviceLeaf>Light2=std::make_shared<DeviceLeaf>(" Living Room Light2");
+    std::shared_ptr<DeviceLeaf>Camera=std::make_shared<DeviceLeaf>(" Living Room Camera");
+    std::shared_ptr<DeviceLeaf>Thermostatt=std::make_shared<DeviceLeaf>(" Living Room Thermostatt");
+    
+    LivingRoom->AddDevice(Light1);
+    LivingRoom->AddDevice(Light2);
+    LivingRoom->AddDevice(Camera);
+    LivingRoom->AddDevice(Thermostatt);
+    
+    std::shared_ptr<DeviceComposite>Kitchen=std::make_shared<DeviceComposite>("Kitchen");
+    
+    
+    
+    std::shared_ptr<DeviceComposite>SecondFloor=std::make_shared<DeviceComposite>("SecondFloor");
+    std::shared_ptr<DeviceComposite>BedRoom=std::make_shared<DeviceComposite>("BedRoom");
+    std::shared_ptr<DeviceLeaf>Light=std::make_shared<DeviceLeaf>(" BedRoom Light");
+    std::shared_ptr<DeviceLeaf>Thermostattt=std::make_shared<DeviceLeaf>("Thermostat");
+    std::shared_ptr<DeviceLeaf>Sensor=std::make_shared<DeviceLeaf>("Sensor");
+    
+    BedRoom->AddDevice(Light);
+    BedRoom->AddDevice(Thermostattt);
+    BedRoom->AddDevice(Sensor);
+    std::shared_ptr<DeviceComposite>BathRoom=std::make_shared<DeviceComposite>("BathRoom");
+
 
     std::cout << "\n\n===== TEST COMPLETED SUCCESSFULLY =====\n";
 
     return 0;
 }
- */
