@@ -18,6 +18,8 @@ public:
     void RemoveDevice(std::shared_ptr<DeviceComponent> device);
     ~DeviceComposite();
     void show();
+    void TurnOnLight();
+    void TurnOffLight();
 };
 
 #endif

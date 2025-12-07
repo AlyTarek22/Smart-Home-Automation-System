@@ -11,12 +11,13 @@ class DeviceLeaf : public DeviceComponent
     std::shared_ptr<Device> device;
 
 public:
-    // DeviceLeaf(std::string name) : name(name) {}
-    DeviceLeaf(std::shared_ptr<Device> d) : device(d),name(d->GetName()) {}
+    DeviceLeaf(std::shared_ptr<Device> d) : device(d), name(d->GetName()) {}
 
     void TurnOn();
     void show();
     void TurnOff();
+    void TurnOnLight();
+    void TurnOffLight();
 };
 
 #endif

@@ -8,6 +8,9 @@ public:
     virtual void TurnOff() = 0;
     virtual ~DeviceComponent() = default;
     virtual void show()=0;
+    virtual void TurnOnLight()=0;
+    virtual void TurnOffLight()=0;
+    
 };
 
 #endif

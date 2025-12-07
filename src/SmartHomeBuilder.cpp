@@ -17,25 +17,25 @@ std::shared_ptr<DeviceComposite> SmartHomeBuilder::buildDefaultHome() {
 
     livingRoom->AddDevice(
         std::make_shared<DeviceLeaf>(
-            factory->CreateLight("Living Room Light 1")
+            factory->CreateLight("LivingRoom Light 1")
         )
     );
 
     livingRoom->AddDevice(
         std::make_shared<DeviceLeaf>(
-            factory->CreateLight("Living Room Light 2")
+            factory->CreateLight("LivingRoom Light 2")
         )
     );
 
     livingRoom->AddDevice(
         std::make_shared<DeviceLeaf>(
-            factory->CreateCamera("Living Room Camera")
+            factory->CreateCamera("LivingRoom Camera")
         )
     );
 
     livingRoom->AddDevice(
         std::make_shared<DeviceLeaf>(
-            factory->CreateThermostat("Living Room Thermostat")
+            factory->CreateThermostat("LivingRoom Thermostat")
         )
     );
 
