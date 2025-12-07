@@ -6,20 +6,22 @@
 #include "DeviceComponent.hpp"
 class DeviceComposite : public DeviceComponent
 {
-    protected:
-    std::string name;
+protected:
     std::vector<std::shared_ptr<DeviceComponent>> devices;
 
 public:
-    DeviceComposite(std::string name) : name(name) {}
+    DeviceComposite(std::string name) : DeviceComponent(name) {}
     void TurnOn();
     void TurnOff();
     void AddDevice(std::shared_ptr<DeviceComponent> device);
     void RemoveDevice(std::shared_ptr<DeviceComponent> device);
-    ~DeviceComposite();
     void show();
     void TurnOnLight();
     void TurnOffLight();
+    void TurnOnSecurity();
+    void TurnOffSecurity();
+    std::shared_ptr<DeviceComponent> Find(const std::string &target);
+    ~DeviceComposite();
 };
 
 #endif

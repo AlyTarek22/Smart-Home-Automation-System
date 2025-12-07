@@ -7,17 +7,20 @@
 class DeviceLeaf : public DeviceComponent
 {
 
-    std::string name;
+    
     std::shared_ptr<Device> device;
 
 public:
-    DeviceLeaf(std::shared_ptr<Device> d) : device(d), name(d->GetName()) {}
+    DeviceLeaf(std::shared_ptr<Device> d) :DeviceComponent(d->GetName()), device(d) {}
 
     void TurnOn();
     void show();
     void TurnOff();
     void TurnOnLight();
     void TurnOffLight();
+    void TurnOnSecurity();
+    void TurnOffSecurity();
+    std::shared_ptr<DeviceComponent> Find(const std::string& target);
 };
 
 #endif

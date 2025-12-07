@@ -7,17 +7,17 @@
 #include "../include/MotionSensor.hpp"
 #include "../include/DoorLock.hpp"
 #include "../include/DeviceComposite.hpp"
-#include "../include/DeviceLeaf.hpp" 
-#include "../include/SmartHomeBuilder.hpp" 
+#include "../include/DeviceLeaf.hpp"
+#include "../include/SmartHomeBuilder.hpp"
 #include <iostream>
 #include <memory>
 int main()
 {
-     HomeController *homeController = HomeController::getInstance();
+    HomeController *homeController = HomeController::getInstance();
     homeController->setFactory(std::make_unique<PhilipsFactory>());
     auto factory = homeController->getFactory();
     homeController->buildHome(std::make_shared<SmartHomeBuilder>(factory));
-    auto house = homeController->getHome(); 
+    auto house = homeController->getHome();
     /*  std::cout << "===== TESTING PHILIPS FACTORY =====\n";
 
      auto pLight = factory->CreateLight("Philips LED Living Room Light", 80);
@@ -91,10 +91,44 @@ int main()
      sMotionSensor->TurnOn();
      sMotionSensor->TurnOff();
      sMotionSensor->SensorType(); */
-     house->show();
-     house->TurnOnLight();
+    //  house->show();
+    //  house->TurnOnLight();
+    auto firstFloor = house->Find("FirstFloor");
+    //  auto SecondFloor=house->Find("SecondFloor");
+    //  auto light1=firstFloor->Find("LivingRoom Light 1");
+    //  auto light2=SecondFloor->Find("BedRoom Light");
 
-    std::cout << "\n\n===== TEST COMPLETED SUCCESSFULLY =====\n"; 
+    //  auto livingroom=house->Find("LivingRoom");
+    //  firstFloor->show();
+    //  firstFloor->TurnOnLight();
+    //  light1->TurnOnLight();
+    //  livingroom->TurnOnLight();
+
+    //  light2->TurnOnLight();
+    //  light2->TurnOffLight();
+
+    auto cameraleaf = firstFloor->Find("LivingRoom Camera");
+    // cameraleaf->TurnOnSecurity();
+    house->TurnOnSecurity();
+    house->TurnOffSecurity();
+    //  auto Light1=firstFloor->Find("LivingRoom Light 1");
+    //  Light1->TurnOffLight();
+// house->TurnOnLight();
+// house->TurnOffLight();
+
+    /*      std::cout<<"Testing Security System in first floor (Camera)\n";
+         firstFloor->TurnOnSecurity();
+
+         std::cout<<"Testing Security System Disabling\n";
+         firstFloor->TurnOffSecurity();
+
+         std::cout<<"Testing Security System in Second floor (MotionSensor)\n";
+         SecondFloor->TurnOnSecurity();
+
+         std::cout<<"Testing Security System Disabling\n";
+         SecondFloor->TurnOffSecurity(); */
+
+    std::cout << "\n\n===== TEST COMPLETED SUCCESSFULLY =====\n";
 
     return 0;
 }
