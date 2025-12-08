@@ -1,4 +1,6 @@
 #include "../include/SmartHomeBuilder.hpp"
+#include "../include/Adaptee.hpp"
+#include "../include/Adapter.hpp"
 
 std::shared_ptr<DeviceComposite> SmartHomeBuilder::buildDefaultHome()
 {
@@ -31,7 +33,11 @@ std::shared_ptr<DeviceComposite> SmartHomeBuilder::buildDefaultHome()
     livingRoom->AddDevice(
         std::make_shared<DeviceLeaf>(
             factory->CreateThermostat("LivingRoom Thermostat")));
+/*For testing adapter */
+/*     auto light1_adaptee = new LightAdaptee();
+    auto light1 = std::make_shared<LightAdapter>("LivingRoom newwwww", 80, light1_adaptee);
 
+    livingRoom->AddDevice(std::make_shared<DeviceLeaf>(light1)); */
     firstFloor->AddDevice(livingRoom);
 
     // -------------------------
@@ -42,7 +48,7 @@ std::shared_ptr<DeviceComposite> SmartHomeBuilder::buildDefaultHome()
     kitchen->AddDevice(
         std::make_shared<DeviceLeaf>(
             factory->CreateLight("Kitchen Light 1")));
-    
+
     firstFloor->AddDevice(kitchen);
 
     // -------------------------

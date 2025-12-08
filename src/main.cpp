@@ -10,15 +10,17 @@
 #include "../include/DeviceLeaf.hpp"
 #include "../include/SmartHomeBuilder.hpp"
 #include "../include/HomeFacade.hpp"
+#include "../include/Adaptee.hpp"
+#include "../include/Adapter.hpp"
 #include <iostream>
 #include <memory>
 int main()
 {
-/*     HomeController *homeController = HomeController::getInstance();
-    homeController->setFactory(std::make_unique<PhilipsFactory>());
-    auto factory = homeController->getFactory();
-    homeController->buildHome(std::make_shared<SmartHomeBuilder>(factory));
-    auto house = homeController->getHome(); */
+/*          HomeController *homeController = HomeController::getInstance();
+        homeController->setFactory(std::make_unique<PhilipsFactory>());
+        auto factory = homeController->getFactory();
+        homeController->buildHome(std::make_shared<SmartHomeBuilder>(factory));
+        auto house = homeController->getHome();  */
     /*  std::cout << "===== TESTING PHILIPS FACTORY =====\n";
 
      auto pLight = factory->CreateLight("Philips LED Living Room Light", 80);
@@ -114,8 +116,8 @@ int main()
     // house->TurnOffSecurity();
     //  auto Light1=firstFloor->Find("LivingRoom Light 1");
     //  Light1->TurnOffLight();
-// house->TurnOnLight();
-// house->TurnOffLight();
+    // house->TurnOnLight();
+    // house->TurnOffLight();
 
     /*      std::cout<<"Testing Security System in first floor (Camera)\n";
          firstFloor->TurnOnSecurity();
@@ -129,43 +131,46 @@ int main()
          std::cout<<"Testing Security System Disabling\n";
          SecondFloor->TurnOffSecurity(); */
 
-         HomeFacade homefacade;
-         homefacade.buildHome();
-         std::cout << "\n\n===== TESTING HOME FACADE =====\n";
-         std::cout << "\n\n===== TESTING TurnOnAllFloors =====\n";
-         homefacade.TurnOnAllFloors();
+/*              HomeFacade homefacade;
+              homefacade.buildHome();
+             std::cout << "\n\n===== TESTING HOME FACADE =====\n";
+             std::cout << "\n\n===== TESTING TurnOnAllFloors =====\n";
+             homefacade.TurnOnAllFloors();
 
-         std::cout << "\n\n===== TESTING TurnOnAllRooms =====\n";
-         homefacade.TurnOnAllRooms();
+             std::cout << "\n\n===== TESTING TurnOnAllRooms =====\n";
+             homefacade.TurnOnAllRooms();
 
-         std::cout << "\n\n===== TESTING TurnOnBathroom =====\n";
-         homefacade.TurnOnBathRoom();
+             std::cout << "\n\n===== TESTING TurnOnBathroom =====\n";
+             homefacade.TurnOnBathRoom();
 
-         std::cout << "\n\n===== TESTING TurnOnBEDRoom =====\n";
-         homefacade.TurnOnBEDRoom();
+             std::cout << "\n\n===== TESTING TurnOnBEDRoom =====\n";
+             homefacade.TurnOnBEDRoom();
 
-         std::cout << "\n\n===== TESTING TurnOnKitchen =====\n";
-         homefacade.TurnOnKitchen();
+             std::cout << "\n\n===== TESTING TurnOnKitchen =====\n";
+             homefacade.TurnOnKitchen(); 
 
-         std::cout << "\n\n===== TESTING TurnOnLivingRoom =====\n";
-         homefacade.TurnOnLivingRoom();
+             std::cout << "\n\n===== TESTING TurnOnLivingRoom =====\n";
+             homefacade.TurnOnLivingRoom(); */
 
-         std::cout << "\n\n===== TESTING TurnOnAllSecurties =====\n";
-         homefacade.TurnOnAllSecurties();
+/*              std::cout << "\n\n===== TESTING TurnOnAllSecurties =====\n";
+             homefacade.TurnOnAllSecurties();
 
-         std::cout << "\n\n===== TESTING TurnOnFirstFloorLights =====\n";
-         homefacade.TurnOnFirstFloorLights();
+             std::cout << "\n\n===== TESTING TurnOnFirstFloorLights =====\n";
+             homefacade.TurnOnFirstFloorLights();
 
-         std::cout << "\n\n===== TESTING TurnOnSecondFloorLights =====\n";
-         homefacade.TurnOnSecondFloorLights();
+             std::cout << "\n\n===== TESTING TurnOnSecondFloorLights =====\n";
+             homefacade.TurnOnSecondFloorLights();
 
-         std::cout << "\n\n===== TESTING TurnOnFirstFloorSecurties =====\n";
-         homefacade.TurnOnFirstFloorSecurties();
+             std::cout << "\n\n===== TESTING TurnOnFirstFloorSecurties =====\n";
+             homefacade.TurnOnFirstFloorSecurties();
 
-         std::cout << "\n\n===== TESTING TurnOnSecondFloorSecurties =====\n";
-         homefacade.TurnOnSecondFloorSecurties();
-         
-
+             std::cout << "\n\n===== TESTING TurnOnSecondFloorSecurties =====\n";
+             homefacade.TurnOnSecondFloorSecurties();  */
+    /* ThermostatAdaptee *ThermostatA = new ThermostatAdaptee();
+    Thermostat *NewThermostatA = new ThermostatAdapter("New Smart Thermostat A",ThermostatA);
+    NewThermostatA->TurnOn(); */
+    // Living Room
+    
     std::cout << "\n\n===== TEST COMPLETED SUCCESSFULLY =====\n";
 
     return 0;
