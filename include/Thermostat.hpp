@@ -4,6 +4,7 @@
 
 class Thermostat : public Device
 {
+    protected:
     int temperature;
 
 public:

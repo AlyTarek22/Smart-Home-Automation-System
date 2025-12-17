@@ -3,7 +3,7 @@
 #include "Device.hpp"
 class Light : public Device
 {
-private:
+protected:
     int brightness;
 
 public:
